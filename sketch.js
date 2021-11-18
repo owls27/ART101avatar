@@ -16,6 +16,7 @@ function setup() {
   // Attempt to refresh at starting FPS
   frameRate(fr);
   clr = color(136, 79, 176);
+
   mic = new p5.AudioIn();
   mic.start();
 }
