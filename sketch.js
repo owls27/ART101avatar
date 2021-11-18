@@ -74,13 +74,12 @@ function draw() {
   }
 
   fill(227, 194, 184);
-}
 
 //face
 face();
 
 function face() {
-    fill(227, 194, 184);
+  fill(227, 194, 184);
   square(250, 600, 650, 600, 600, 300, 300, 300);
 }
 
@@ -154,4 +153,5 @@ function movingcircle() {
   fill(136, 79, 176);
   stroke(255);
   ellipse(x, y, 66, 66);
+}
 }
