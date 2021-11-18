@@ -26,6 +26,7 @@ function startSketch() {
 }
 
 function draw() {
+  noStroke();
   background(0, 0, 35, 25); //background with transparancy
 
   if (mouseIsPressed) {
@@ -75,83 +76,82 @@ function draw() {
   fill(227, 194, 184);
 }
 
-  //face
-  face();
+//face
+face();
 
-  function face() {
-    noStroke();
-    quad(250, 600, 650, 600, 600, 300, 300, 300);
-    fill(227, 194, 184);
-  }
-
-  //nose
-  nose();
-
-  function nose() {
-    fill(254, 214, 208);
-    triangle(440, 520, 460, 520, 450, 470);
-    fill(212, 157, 152);
-    triangle(440, 520, 460, 520, 450, 530);
-  }
-
-  //EARs
-  noStroke()
+function face() {
+  quad(250, 600, 650, 600, 600, 300, 300, 300);
   fill(227, 194, 184);
+}
 
-  //Moving Ears
-  moveEARs();
+//nose
+nose();
 
-  function moveEARs() {
-    var deltay = (mouseY) / 350 * 8;
-    ellipse(250, 500 + deltay, 100);
-    ellipse(650, 500 + deltay, 100);
-  }
+function nose() {
+  fill(254, 214, 208);
+  triangle(440, 520, 460, 520, 450, 470);
+  fill(212, 157, 152);
+  triangle(440, 520, 460, 520, 450, 530);
+}
 
-  //Eye
-  Eye();
+//EARs
+noStroke()
+fill(227, 194, 184);
 
-  function Eye() {
-    fill(0);
-    ellipse(xLeft, y2, 25);
-    ellipse(xRight, y2, 25);
-    y2 = map(mouseY, 0, height, 430, 450, true);
-    xLeft = map(mouseX, 0, width, 515, 535, true);
-    xRight = map(mouseX, 0, width, 365, 385, true);
-  }
+//Moving Ears
+moveEARs();
 
-  //Hair
-  Hair();
+function moveEARs() {
+  var deltay = (mouseY) / 350 * 8;
+  ellipse(250, 500 + deltay, 100);
+  ellipse(650, 500 + deltay, 100);
+}
 
-  function Hair() {
-    push();
-    fill(0);
-    square(250, 250, 150, 80, 0, 10, 10);
-    square(500, 250, 150, 0, 80, 10, 10);
-    square(440, 250, 100, 0, 80, 10, 10);
-    square(400, 250, 100, 0, 80, 10, 10);
-    fill(255, 255, 255)
-    quad(270, 390, 280, 390, 280, 310, 270, 310);
-    quad(290, 390, 300, 390, 300, 310, 290, 310);
-    pop();
-  }
+//Eye
+Eye();
 
-  //mouth
-  mouth();
+function Eye() {
+  fill(0);
+  ellipse(xLeft, y2, 25);
+  ellipse(xRight, y2, 25);
+  y2 = map(mouseY, 0, height, 430, 450, true);
+  xLeft = map(mouseX, 0, width, 515, 535, true);
+  xRight = map(mouseX, 0, width, 365, 385, true);
+}
 
-  function mouth() {
-    getlevel();
-    fill(209, 51, 26);
-    ellipse(450, 570, 70, mic.getLevel() * 300);
-    console.log(mic.getLevel());
-  }
-  //movingcircle
-  movingcircle();
+//Hair
+Hair();
 
-  function movingcircle() {
-    x = lerp(x, mouseX, 0.5);
-    y = lerp(y, mouseY, 0.5);
+function Hair() {
+  push();
+  fill(0);
+  square(250, 250, 150, 80, 0, 10, 10);
+  square(500, 250, 150, 0, 80, 10, 10);
+  square(440, 250, 100, 0, 80, 10, 10);
+  square(400, 250, 100, 0, 80, 10, 10);
+  fill(255, 255, 255)
+  quad(270, 390, 280, 390, 280, 310, 270, 310);
+  quad(290, 390, 300, 390, 300, 310, 290, 310);
+  pop();
+}
 
-    fill(136, 79, 176);
-    stroke(255);
-    ellipse(x, y, 66, 66);
-  }
+//mouth
+mouth();
+
+function mouth() {
+  getlevel();
+  fill(209, 51, 26);
+  ellipse(450, 570, 70, mic.getLevel() * 300);
+  console.log(mic.getLevel());
+}
+//movingcircle
+movingcircle();
+
+function movingcircle() {
+  x = lerp(x, mouseX, 0.5);
+  y = lerp(y, mouseY, 0.5);
+
+  fill(136, 79, 176);
+  stroke(255);
+  ellipse(x, y, 66, 66);
+}
