@@ -73,12 +73,13 @@ function draw() {
   }
 
   fill(227, 194, 184);
+}
 
   //face
   face();
 
   function face() {
-    noStroke()
+    noStroke();
     quad(250, 600, 650, 600, 600, 300, 300, 300);
     fill(227, 194, 184);
   }
@@ -154,4 +155,3 @@ function draw() {
     stroke(255);
     ellipse(x, y, 66, 66);
   }
-}
