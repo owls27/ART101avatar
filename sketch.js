@@ -8,7 +8,7 @@ let y = 0;
 let xLeft = 525;
 let xRight = 375;
 let y2 = 440;
-let sketchStarted = false;
+
 
 
 function setup() {
@@ -16,14 +16,8 @@ function setup() {
   // Attempt to refresh at starting FPS
   frameRate(fr);
   clr = color(136, 79, 176);
-  createButton("Start").mousePressed(startSketch);
-}
-
-function startSketch() {
   mic = new p5.AudioIn();
   mic.start();
-
-  sketchStarted = true;
 }
 
 function draw() {
@@ -84,7 +78,7 @@ function draw() {
 
   function face() {
     fill(227, 194, 184);
-    square(250, 600, 650, 600, 600, 300, 300, 300);
+    quad(250, 600, 650, 600, 600, 300, 300, 300);
   }
 
   //nose
@@ -144,8 +138,7 @@ function draw() {
   function mouth() {
     fill(209, 51, 26);
     let vol = mic.getLevel();
-    let h = map(vol, 0, 1, height, 0);
-    ellipse(450, 570, 70, h * 300);
+    ellipse(450, 570, 70, vol * 300);
   }
 
   //movingcircle
